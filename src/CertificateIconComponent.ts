@@ -1,20 +1,25 @@
 import { OnConnected } from './OnConnected';
+import { Prop } from './Prop';
+import { SignParams } from './SignParams';
 import { SignTooltipComponent } from './SignTooltipComponent';
 
 export class CertificateIconComponent extends HTMLElement implements OnConnected {
   static readonly selector = 'certificate-icon';
 
-  static create(): HTMLElement {
-    return document.createElement(CertificateIconComponent.selector);
+  static create(signParams: SignParams): HTMLElement {
+    const icon = document.createElement(
+      CertificateIconComponent.selector,
+    ) as CertificateIconComponent;
+    icon.signParams = signParams;
+    return icon;
   }
+
+  @Prop()
+  private signParams!: SignParams;
 
   connectedCallback(): void {
     this.innerHTML = signSvg;
-    const signTooltip = SignTooltipComponent.create({
-      serialNumber: '329af39f270c47d3fa0b0c344d1632afc8217a61',
-      author: 'Мухорина Елена Ивановна',
-      singedAt: '23.03.2021',
-    });
+    const signTooltip = SignTooltipComponent.create(this.signParams);
     this.appendChild(signTooltip);
   }
 }

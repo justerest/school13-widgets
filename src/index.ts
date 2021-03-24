@@ -1,5 +1,5 @@
-import { SignedDocumentComponent } from './SignedDocumentComponent';
 import { CertificateIconComponent } from './CertificateIconComponent';
+import { SignedDocumentComponent } from './SignedDocumentComponent';
 import { SignTooltipComponent } from './SignTooltipComponent';
 
 import './styles.scss';

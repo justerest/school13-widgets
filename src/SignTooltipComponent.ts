@@ -1,4 +1,5 @@
 import { OnConnected } from './OnConnected';
+import { Prop } from './Prop';
 import { SignParams } from './SignParams';
 
 export class SignTooltipComponent extends HTMLElement implements OnConnected {
@@ -12,20 +13,16 @@ export class SignTooltipComponent extends HTMLElement implements OnConnected {
     return signTooltip;
   }
 
-  private get signParams(): SignParams {
-    return JSON.parse(this.getAttribute('signParams') ?? '');
-  }
-
-  private set signParams(signParams: SignParams) {
-    this.setAttribute('signParams', JSON.stringify(signParams));
-  }
+  @Prop()
+  private signParams!: SignParams;
 
   connectedCallback(): void {
+    const { serialNumber, author, singedAt } = this.signParams;
     this.innerHTML = `
 			<h3>Документ подписан электронной подписью</h3>
-			<p>Серийный номер: <strong>${this.signParams.serialNumber}</strong></p>
-			<p>Директор: <strong>${this.signParams.author}</strong></p>
-			<p>Дата подписания документа: <strong>${this.signParams.singedAt}</strong></p>
+			<p>Серийный номер: <strong>${serialNumber}</strong></p>
+			<p>Директор: <strong>${author}</strong></p>
+			<p>Дата подписания документа: <strong>${singedAt}</strong></p>
 		`;
   }
 }
