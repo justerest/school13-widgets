@@ -12,11 +12,11 @@ export class SignTooltipComponent extends HTMLElement implements OnConnected {
     return signTooltip;
   }
 
-  get signParams(): SignParams {
+  private get signParams(): SignParams {
     return JSON.parse(this.getAttribute('signParams') ?? '');
   }
 
-  set signParams(signParams: SignParams) {
+  private set signParams(signParams: SignParams) {
     this.setAttribute('signParams', JSON.stringify(signParams));
   }
 
@@ -25,7 +25,7 @@ export class SignTooltipComponent extends HTMLElement implements OnConnected {
 			<h3>Документ подписан электронной подписью</h3>
 			<p>Серийный номер: <strong>${this.signParams.serialNumber}</strong></p>
 			<p>Директор: <strong>${this.signParams.author}</strong></p>
-			<p>Дата: <strong>${this.signParams.singedAt}</strong></p>
+			<p>Дата подписания документа: <strong>${this.signParams.singedAt}</strong></p>
 		`;
   }
 }

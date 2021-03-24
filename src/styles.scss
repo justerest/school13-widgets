@@ -1,6 +1,9 @@
 certificate-icon {
   position: relative;
+  display: inline-block;
+  height: 24px;
   margin-left: 12px;
+  vertical-align: middle;
   cursor: pointer;
 
   sign-tooltip {

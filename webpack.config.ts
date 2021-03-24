@@ -1,6 +1,5 @@
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { resolve } from 'path';
 import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
 import { Configuration } from 'webpack';
@@ -12,7 +11,7 @@ const PROD_ENV = process.env.NODE_ENV === 'production';
 const config: Configuration = {
   mode: PROD_ENV ? 'production' : 'development',
   entry: ['./src/index'],
-  output: { path: resolve(__dirname, 'build'), filename: '[name].js' },
+  output: { path: resolve(__dirname, 'build'), filename: 'school13-widgets.js' },
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
     plugins: [new TsconfigPathsPlugin()],
@@ -24,7 +23,7 @@ const config: Configuration = {
       {
         test: /\.scss$/i,
         use: [
-          PROD_ENV ? MiniCssExtractPlugin.loader : 'style-loader',
+          'style-loader',
           'css-loader',
           { loader: 'sass-loader', options: { sassOptions: { includePaths: ['src/styles'] } } },
         ],
@@ -43,7 +42,6 @@ function getProdPlugins() {
       template: resolve(__dirname, 'src/index.html'),
       minify: { removeComments: true, collapseWhitespace: true },
     }),
-    new MiniCssExtractPlugin(),
   ];
 }
 
