@@ -21,10 +21,10 @@ sign-tooltip {
   position: absolute;
   width: max-content;
   top: 100%;
-  left: calc(50% - max-content / 2);
+  left: -24px;
   padding: 12px 16px;
   border-radius: 4px;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.98);
   box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14),
     0 1px 3px 0 rgba(0, 0, 0, 0.12);
   z-index: 100;
