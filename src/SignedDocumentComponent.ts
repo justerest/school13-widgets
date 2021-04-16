@@ -26,7 +26,7 @@ export class SignedDocumentComponent extends HTMLElement implements OnConnected 
 
   connectedCallback(): void {
     this.insertAnchorElement();
-    this.append(CertificateIconComponent.create(this.getSignParams()));
+    this.appendChild(CertificateIconComponent.create(this.getSignParams()));
   }
 
   private getSignParams(): SignParams {
