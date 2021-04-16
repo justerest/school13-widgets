@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "target": "es2019",
+    "target": "ES5",
     "module": "esnext",
     "moduleResolution": "node",
     "skipLibCheck": true,

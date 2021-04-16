@@ -1,4 +1,5 @@
 import '@webcomponents/custom-elements';
+import '@webcomponents/custom-elements/src/native-shim';
 
 import { CertificateIconComponent } from './CertificateIconComponent';
 import { SignedDocumentComponent } from './SignedDocumentComponent';
